@@ -55,11 +55,9 @@
       import init, { endtime_now_string } from "./pkg/endtime.js";
 
       init().then(() => {
-        document.addEventListener('DOMContentLoaded', () => {
-          setInterval(() => {
-            document.getElemenutById("time").innerHTML = endtime_now_string(":", 4);
-          }, 100);
-        })
+        setInterval(() => {
+          document.getElementById("time").innerHTML = endtime_now_string(":", 4);
+        }, 100);
       });
     </script>
   </head>
