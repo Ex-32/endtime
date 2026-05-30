@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Endtime</title>
+    <style>
+      * {
+        font-family: monospace;
+
+        background: black;
+        color: white;
+
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .converter-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .converter-column {
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      @media (max-width: 768px) {
+        .converter-section {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      #time {
+        font-size: 32pt;
+      }
+    </style>
+    <script type="module">
+      import init, { endtime_now_string } from "./pkg/endtime.js";
+
+      init().then(() => {
+        const updateTime = () => {
+          document.getElemenutById("time").innerHTML = endtime_now_string(":", 4);
+        };
+
+        setInterval(updateTime, 100); 
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div>welcome to the endtimes</div>
+        <div id="time">0000.0000</div>
+        <div>days since midnight 2012-12-21</div>
+      </div>
+
+      <div class="converter-section">
+        <div class="converter-column">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div class="converter-column">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
